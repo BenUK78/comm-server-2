@@ -7,6 +7,5 @@ COPY comm-server-2.py /app/
 # Install any dependencies (in this case, none)
 # RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8002
-#  No longer hardcoded, the application listens on the port it receives from here.
-CMD ["python3", "comm-server-2.py", "8002"]
+# No need to EXPOSE a port, Kubernetes uses the containerPort in the Deployment.
+CMD ["python3", "comm-server-2.py"] # Do NOT hardcode the port here.

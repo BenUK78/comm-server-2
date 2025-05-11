@@ -3,7 +3,7 @@ import socketserver
 import ssl
 import os
 import time
-import sys # Import the sys module
+import sys
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -33,10 +33,7 @@ def run_server(port, server_type='http', certfile=None, keyfile=None):
         httpd.serve_forever()
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        port = int(sys.argv[1])  # Get port from command line
-    else:
-        port = 8000
+    port = int(os.environ.get("PORT", 8002)) # Get port from environment variable, default to 8002
     server_type = 'http' # Crucial: Inside the mesh, use http.  Istio handles TLS.
     # certfile = "path/to/your/server2.crt"
     # keyfile = "path/to/your/server2.key"
