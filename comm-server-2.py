@@ -35,6 +35,8 @@ def run_server(port, server_type='http', certfile=None, keyfile=None):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8002)) # Get port from environment variable, default to 8002
     server_type = 'http' # Crucial: Inside the mesh, use http.  Istio handles TLS.
+    certfile = None # Initialize certfile
+    keyfile = None # Initialize keyfile
     # certfile = "path/to/your/server2.crt"
     # keyfile = "path/to/your/server2.key"
 

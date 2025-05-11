@@ -195,7 +195,7 @@ spec:
                 container('python') {
                     script {
                         withKubeConfig([credentialsId: 'jenkins-kubectl-deployer']) {
-                            sh 'kubectl apply -f k8s-deployment.yaml -n default'
+                            sh 'kubectl apply -f k8s-deployment.yaml -n app-test'
                         }
                     }
                 }
