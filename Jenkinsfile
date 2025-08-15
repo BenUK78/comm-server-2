@@ -32,13 +32,13 @@ spec:
         memory: 2Gi
         cpu: 1
     volumeMounts:
-    - name: app-service-tls-vol
+    - name: jenkins-tls-vol
       mountPath: /etc/ssl/certs/ca-certificates.crt
       subPath: ca.crt
   volumes:
-  - name: app-service-tls-vol
+  - name: jenkins-tls-vol
     secret:
-      secretName: app-service-tls
+      secretName: jenkins-tls
                 '''
         }
     }
