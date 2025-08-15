@@ -32,13 +32,13 @@ spec:
         memory: 2Gi
         cpu: 1
     volumeMounts:
-    - name: docker-registry-tls
+    - name: app-service-tls-vol
       mountPath: /etc/ssl/certs/ca-certificates.crt
       subPath: ca.crt
   volumes:
-  - name: docker-registry-tls
+  - name: app-service-tls-vol
     secret:
-      secretName: docker-registry-tls
+      secretName: app-service-tls
                 '''
         }
     }
