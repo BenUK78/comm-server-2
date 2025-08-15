@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: comm-server-2-deployment
-  namespace: app-test
+  namespace: apps
   labels:
     app: comm-server-2
 spec:
@@ -19,7 +19,7 @@ spec:
         sidecar.istio.io/inject: "true"
     spec:
       imagePullSecrets:
-      - name: docker-registry-tls # Use your image pull secret name
+      - name: app-service-tls # Use your image pull secret name
       containers:
       - name: comm-server-2
         image: docker-registry.docker-registry.svc.cluster.local:5000/comm-server-2:IMAGE_TAG
