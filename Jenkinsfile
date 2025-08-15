@@ -195,7 +195,7 @@ spec:
                 container('python') {
                     script {
                         withKubeConfig([credentialsId: 'jenkins-kubectl-deployer']) {
-                            sh 'kubectl apply -f k8s-deployment.yaml -n app-test'
+                            sh 'kubectl apply -f k8s-deployment.yaml -n apps'
                         }
                     }
                 }
@@ -209,11 +209,11 @@ spec:
         //                 withKubeConfig([credentialsId: 'jenkins-kubectl-deployer']) {
         //                     sh '''
         //                         # Check job status
-        //                         kubectl get job -n default comm-server-2-job
+        //                         kubectl get job -n apps comm-server-2-job
                                 
         //                         # Wait for job completion
         //                         while true; do
-        //                             job_status=$(kubectl get job -n default comm-server-2-job -o jsonpath='{.status.conditions[?(@.type=="Complete")].status}')
+        //                             job_status=$(kubectl get job -n apps comm-server-2-job -o jsonpath='{.status.conditions[?(@.type=="Complete")].status}')
         //                             if [ "$job_status" = "True" ]; then
         //                                 echo "Job completed successfully"
         //                                 break
@@ -223,7 +223,7 @@ spec:
         //                         done
                                 
         //                         # Get detailed job information
-        //                         kubectl describe job -n default comm-server-2-job
+        //                         kubectl describe job -n apps comm-server-2-job
         //                     '''
         //                 }
         //             }
